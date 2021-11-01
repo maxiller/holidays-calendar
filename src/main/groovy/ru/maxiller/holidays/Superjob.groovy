@@ -1,4 +1,4 @@
-package ru.d10xa.holidays
+package ru.maxiller.holidays
 
 import groovy.cli.picocli.CliBuilder
 import groovy.json.JsonOutput

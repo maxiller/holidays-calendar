@@ -2,22 +2,22 @@ apply plugin: 'groovy'
 apply plugin: 'application'
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 dependencies {
-    implementation "org.codehaus.groovy:groovy-all:3.0.2"
-    implementation "org.jsoup:jsoup:1.13.1"
+    compile "org.codehaus.groovy:groovy-all:3.0.2"
+    compile "org.jsoup:jsoup:1.13.1"
 }
 
 task runSuperjob(type: JavaExec) {
     classpath sourceSets.main.runtimeClasspath
-    mainClass = 'ru.d10xa.holidays.Superjob'
+    main = 'ru.maxiller.holidays.Superjob'
 }
 
 task runConsultant(type: JavaExec) {
     classpath sourceSets.main.runtimeClasspath
-    mainClass = 'ru.d10xa.holidays.Consultant'
+    main = 'ru.maxiller.holidays.Consultant'
 }
 
 import groovy.json.JsonOutput
