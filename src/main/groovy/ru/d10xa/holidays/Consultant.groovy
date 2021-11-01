@@ -77,11 +77,11 @@ class Consultant {
         def nowork2020 = year == 2020 ? extractDates("td.nowork") - date20200701 : []
         def nowork2021 = year == 2021 ? extractDates("td.nowork") : []
 
-        // 2021-11-03 *** Нерабочие дни с сохранением заработной платы в соответствии с Указом Президента
-        // РФ от 20.10.2021 N 595. В организациях, для которых 3 ноября является рабочим днем,
-        // продолжительность работы в этот день сокращается на 1 час.
-        def date20211103 = LocalDate.parse("2021-11-03")
-        def listWithOptionalPreholidays = year == 2021 ? [date20211103.toString()] : []
+        // // 2021-11-03 *** Нерабочие дни с сохранением заработной платы в соответствии с Указом Президента
+        // // РФ от 20.10.2021 N 595. В организациях, для которых 3 ноября является рабочим днем,
+        // // продолжительность работы в этот день сокращается на 1 час.
+        // def date20211103 = LocalDate.parse("2021-11-03")
+        // def listWithOptionalPreholidays = year == 2021 ? [date20211103.toString()] : []
 
         assert holidays.size() > 100
         assert holidays.size() < 140
@@ -95,7 +95,7 @@ class Consultant {
 
         String json = JsonOutput.toJson([
             "holidays" : holidays.collect { it.toString() },
-            "preholidays": preholidays.collect { it.toString() } + listWithOptionalPreholidays
+            "preholidays": preholidays.collect { it.toString() }
         ] + noworkMap)
         JsonOutput.prettyPrint(json)
     }
